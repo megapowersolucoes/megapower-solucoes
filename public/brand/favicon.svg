@@ -1,0 +1,13 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="M ícone">
+  <defs>
+    <linearGradient id="mp-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2A4B8C"/>
+      <stop offset="100%" stop-color="#00A896"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="#0B1220"/>
+  <circle cx="64" cy="64" r="44" fill="none" stroke="rgba(248,249,250,0.35)" stroke-width="6"/>
+  <path d="M 38,64 C 38,48 50,36 64,36 C 78,36 90,48 90,64" fill="none" stroke="#2A4B8C" stroke-width="10" stroke-linecap="round"/>
+  <path d="M 90,64 C 90,80 78,92 64,92 C 50,92 38,80 38,64" fill="none" stroke="#00A896" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="64" cy="64" r="9" fill="url(#mp-grad)"/>
+</svg>
