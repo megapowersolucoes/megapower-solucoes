@@ -1,0 +1,17 @@
+<svg width="640" height="220" viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Megapower Soluções">
+  <defs>
+    <linearGradient id="mp-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2A4B8C"/>
+      <stop offset="100%" stop-color="#00A896"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="220" fill="#FFFFFF"/>
+  <circle cx="110" cy="110" r="78" fill="none" stroke="rgba(11,18,32,0.15)" stroke-width="8"/>
+  <path d="M 60,110 C 60,80 80,60 110,60 C 140,60 160,80 160,110" fill="none" stroke="#2A4B8C" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 160,110 C 160,140 140,160 110,160 C 80,160 60,140 60,110" fill="none" stroke="#00A896" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="110" cy="110" r="16" fill="url(#mp-grad)"/>
+  <g fill="#0B1220">
+    <text x="210" y="108" font-family="Inter, Montserrat, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="1">MEGAPOWER</text>
+    <text x="210" y="148" font-family="Inter, Montserrat, Arial, sans-serif" font-size="28" font-weight="300" opacity="0.85">SOLUÇÕES</text>
+  </g>
+</svg>
