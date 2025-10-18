@@ -1,0 +1,54 @@
+:root{
+  --bg:#0B0F13;
+  --surface:#121821;
+  --muted:#1B2330;
+  --line:#1F2A3A;
+
+  --brand:#1FE0C9;        /* acento neon (ALMA) */
+  --brand-2:#2A4B8C;      /* azul Megapower */
+  --text:#E8F0F7;
+  --text-dim:#9DB0C5;
+
+  --radius:16px;
+  --shadow:0 8px 28px rgba(0,0,0,.35);
+  --glass:rgba(255,255,255,.04);
+  --blur:12px;
+}
+
+html,body{background:var(--bg); color:var(--text);}
+*{box-sizing:border-box}
+
+.container{max-width:1120px; margin:0 auto; padding:0 24px}
+.section{padding:72px 0}
+.h1{font-size: clamp(28px, 4vw, 44px); line-height:1.15; letter-spacing:.2px;}
+.h2{font-size: clamp(22px, 3vw, 32px); line-height:1.2}
+.p{color:var(--text-dim); line-height:1.7}
+
+.card{
+  background:var(--glass);
+  backdrop-filter: blur(var(--blur));
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 20px; border-radius:12px; font-weight:600;
+  background:linear-gradient(135deg, var(--brand), #4be8ff);
+  color:#031015; border:none; cursor:pointer; transition:.2s transform, .2s opacity;
+}
+.btn:hover{ transform: translateY(-2px); opacity:.95}
+.btn-secondary{
+  background:transparent; color:var(--text);
+  border:1px solid #2c3b52; backdrop-filter: blur(var(--blur));
+}
+
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:999px; font-size:13px;
+  background: #0d1b24; color:#9beff0; border:1px solid #133848;
+}
+hr.sep{border:0; height:1px; background:linear-gradient(90deg, transparent, #203045, transparent); margin:32px 0}
+nav a{color:var(--text-dim); text-decoration:none}
+nav a.active, nav a:hover{color:var(--text)}
