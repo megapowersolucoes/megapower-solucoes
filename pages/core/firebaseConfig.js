@@ -1,17 +1,18 @@
-// Import the functions you need from the SDKs you need
+// Importa funções do Firebase
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "firebase/auth";
 
-// Your web app's Firebase configuration
+// Configuração segura usando variável de ambiente
 const firebaseConfig = {
-  apiKey: "AIzaSyDDbZuoAxpA-jRa7Kxn506DqeqzDwKPa-c",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "megapower-solucoes.firebaseapp.com",
   projectId: "megapower-solucoes",
-  storageBucket: "megapower-solucoes.firebasestorage.app",
+  storageBucket: "megapower-solucoes.appspot.com",
   messagingSenderId: "64488455601",
   appId: "1:64488455601:web:a45d66e38feda8f966d190"
 };
 
-// Initialize Firebase
+// Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export default app;
