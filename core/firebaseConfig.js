@@ -1,5 +1,4 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 
 // Configuração segura com variáveis da Vercel
 const firebaseConfig = {
@@ -8,11 +7,10 @@ const firebaseConfig = {
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-// Evita erro de múltiplas inicializações no Next.js
-export const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+// Evita erro de inicialização múltipla
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-// Exporta autenticação
-export const auth = getAuth(app);
+export { app };
