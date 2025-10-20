@@ -1,18 +1,18 @@
-// Importa funções do Firebase
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
-// Configuração segura usando variável de ambiente
+// Configuração segura com variáveis da Vercel
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: "megapower-solucoes.firebaseapp.com",
-  projectId: "megapower-solucoes",
-  storageBucket: "megapower-solucoes.appspot.com",
-  messagingSenderId: "64488455601",
-  appId: "1:64488455601:web:a45d66e38feda8f966d190"
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Inicializa o Firebase
-const app = initializeApp(firebaseConfig);
+// Evita erro de múltiplas inicializações no Next.js
+export const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+// Exporta autenticação
 export const auth = getAuth(app);
-export default app;
