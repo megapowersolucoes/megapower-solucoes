@@ -1,8 +1,13 @@
+"use client";
+
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "./firebaseConfig";
 
 export default function LoginPage() {
+  // 🚨 Protege o build do Next.js
+  if (typeof window === "undefined") return null;
+
   const auth = getAuth(app);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,25 +29,39 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{
-      backgroundColor: "#0e1624",
-      minHeight: "100vh",
-      color: "#fff",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      fontFamily: "Inter, sans-serif"
-    }}>
+    <div
+      style={{
+        backgroundColor: "#0e1624",
+        minHeight: "100vh",
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Inter, sans-serif",
+      }}
+    >
       <h1>🔐 Acesso Ético ao ALMA CORE</h1>
-      <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", width: "300px" }}>
+      <form
+        onSubmit={handleLogin}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "300px",
+        }}
+      >
         <input
           type="email"
           placeholder="E-mail institucional"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          style={{ margin: "8px 0", padding: "10px", borderRadius: "8px", border: "none" }}
+          style={{
+            margin: "8px 0",
+            padding: "10px",
+            borderRadius: "8px",
+            border: "none",
+          }}
         />
         <input
           type="password"
@@ -50,7 +69,12 @@ export default function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          style={{ margin: "8px 0", padding: "10px", borderRadius: "8px", border: "none" }}
+          style={{
+            margin: "8px 0",
+            padding: "10px",
+            borderRadius: "8px",
+            border: "none",
+          }}
         />
         <button
           type="submit"
@@ -63,7 +87,7 @@ export default function LoginPage() {
             backgroundColor: "#00A896",
             color: "#fff",
             fontWeight: "bold",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           {loading ? "Verificando..." : "Entrar com Credenciais Éticas"}
