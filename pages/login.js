@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../../core/firebaseConfig";
-
+import { app } from "../core/firebaseConfig";
 
 export default function LoginPage() {
-  // 🚨 Protege o build do Next.js
   if (typeof window === "undefined") return null;
 
   const auth = getAuth(app);
@@ -22,7 +20,8 @@ export default function LoginPage() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "/core/dashboard"; // redireciona após login
+      // Ajuste o redirecionamento para uma rota real
+      window.location.href = "/dashboard"; 
     } catch (err) {
       setError("Credenciais incorretas ou acesso não autorizado.");
       setLoading(false);
@@ -43,6 +42,7 @@ export default function LoginPage() {
       }}
     >
       <h1>🔐 Acesso Ético ao ALMA CORE</h1>
+
       <form
         onSubmit={handleLogin}
         style={{
@@ -94,7 +94,10 @@ export default function LoginPage() {
           {loading ? "Verificando..." : "Entrar com Credenciais Éticas"}
         </button>
       </form>
-      {error && <p style={{ color: "#ff6b6b", marginTop: "10px" }}>{error}</p>}
+
+      {error && (
+        <p style={{ color: "#ff6b6b", marginTop: "10px" }}>{error}</p>
+      )}
     </div>
   );
 }
