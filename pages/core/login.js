@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "./firebaseConfig";
+import { app } from "../../core/firebaseConfig";
+
 
 export default function LoginPage() {
   // 🚨 Protege o build do Next.js
