@@ -1,6 +1,7 @@
+import React from "react";
 import Link from "next/link";
 
-export default function CoreLogin() {
+export default function HomePage() {
   return (
     <main
       style={{
@@ -13,6 +14,7 @@ export default function CoreLogin() {
         alignItems: "center",
         fontFamily: "Inter, Montserrat, sans-serif",
         textAlign: "center",
+        padding: "20px",
       }}
     >
       <img
@@ -22,12 +24,13 @@ export default function CoreLogin() {
         style={{ marginBottom: "2rem" }}
       />
 
-      <h2 style={{ color: "#00A896", marginBottom: "1rem" }}>
-        Acesso ao Painel ALMA CORE
-      </h2>
+      <h1 style={{ color: "#00A896", marginBottom: "1rem", fontSize: "1.8rem" }}>
+        Bem-vindo à Megapower Soluções
+      </h1>
 
-      <p style={{ color: "#AAB5C8", marginBottom: "2rem" }}>
-        Área restrita para membros do Conselho e Núcleos Éticos.
+      <p style={{ color: "#AAB5C8", marginBottom: "2rem", maxWidth: "500px" }}>
+        Inovação e tecnologia para impulsionar o futuro.  
+        Acesse o painel <strong>ALMA CORE</strong> abaixo.
       </p>
 
       <Link href="/login">
@@ -41,7 +44,10 @@ export default function CoreLogin() {
             fontSize: "1rem",
             cursor: "pointer",
             fontWeight: "600",
+            transition: "0.3s",
           }}
+          onMouseOver={(e) => (e.target.style.backgroundColor = "#05C3AD")}
+          onMouseOut={(e) => (e.target.style.backgroundColor = "#00A896")}
         >
           Entrar com Credenciais Éticas
         </button>
