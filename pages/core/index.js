@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CoreLogin() {
   return (
     <main
@@ -28,20 +30,22 @@ export default function CoreLogin() {
         Área restrita para membros do Conselho e Núcleos Éticos.
       </p>
 
-      <button
-        style={{
-          backgroundColor: "#00A896",
-          color: "#0B1220",
-          border: "none",
-          borderRadius: "8px",
-          padding: "12px 32px",
-          fontSize: "1rem",
-          cursor: "pointer",
-          fontWeight: "600",
-        }}
-      >
-        Entrar com Credenciais Éticas
-      </button>
+      <Link href="/login">
+        <button
+          style={{
+            backgroundColor: "#00A896",
+            color: "#0B1220",
+            border: "none",
+            borderRadius: "8px",
+            padding: "12px 32px",
+            fontSize: "1rem",
+            cursor: "pointer",
+            fontWeight: "600",
+          }}
+        >
+          Entrar com Credenciais Éticas
+        </button>
+      </Link>
     </main>
   );
 }
