@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../../core/firebaseConfig";
-
+import { app } from "../core/firebaseConfig";
 
 export default function LoginPage() {
-  // 🚨 Protege o build do Next.js
   if (typeof window === "undefined") return null;
 
   const auth = getAuth(app);
@@ -30,71 +28,92 @@ export default function LoginPage() {
   };
 
   return (
-    <div
+    <main
       style={{
-        backgroundColor: "#0e1624",
+        backgroundColor: "#0B1220",
+        color: "#E8EEF6",
         minHeight: "100vh",
-        color: "#fff",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
         justifyContent: "center",
-        fontFamily: "Inter, sans-serif",
+        alignItems: "center",
+        fontFamily: "Inter, Montserrat, sans-serif",
+        textAlign: "center",
       }}
     >
-      <h1>🔐 Acesso Ético ao ALMA CORE</h1>
+      <img
+        src="/brand/logo-megapower-dark.svg"
+        alt="Megapower Soluções"
+        width="220"
+        style={{ marginBottom: "1.5rem" }}
+      />
+
+      <h2 style={{ color: "#00A896", marginBottom: "1rem" }}>
+        Acesso Ético — ALMA CORE
+      </h2>
+
       <form
         onSubmit={handleLogin}
         style={{
           display: "flex",
           flexDirection: "column",
-          width: "300px",
+          gap: "10px",
+          width: "280px",
         }}
       >
         <input
           type="email"
-          placeholder="E-mail institucional"
+          placeholder="E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
           style={{
-            margin: "8px 0",
             padding: "10px",
-            borderRadius: "8px",
-            border: "none",
+            borderRadius: "6px",
+            border: "1px solid #00A896",
+            backgroundColor: "#101828",
+            color: "#E8EEF6",
           }}
+          required
         />
+
         <input
           type="password"
           placeholder="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
           style={{
-            margin: "8px 0",
             padding: "10px",
-            borderRadius: "8px",
-            border: "none",
+            borderRadius: "6px",
+            border: "1px solid #00A896",
+            backgroundColor: "#101828",
+            color: "#E8EEF6",
           }}
+          required
         />
+
         <button
           type="submit"
           disabled={loading}
           style={{
-            marginTop: "12px",
-            padding: "10px",
-            borderRadius: "8px",
+            backgroundColor: loading ? "#058C77" : "#00A896",
+            color: "#0B1220",
             border: "none",
-            backgroundColor: "#00A896",
-            color: "#fff",
-            fontWeight: "bold",
+            borderRadius: "8px",
+            padding: "12px",
+            fontSize: "1rem",
             cursor: "pointer",
+            fontWeight: "600",
           }}
         >
-          {loading ? "Verificando..." : "Entrar com Credenciais Éticas"}
+          {loading ? "Entrando..." : "Entrar"}
         </button>
       </form>
-      {error && <p style={{ color: "#ff6b6b", marginTop: "10px" }}>{error}</p>}
-    </div>
+
+      {error && (
+        <p style={{ color: "#FF6B6B", marginTop: "1rem", fontSize: "0.9rem" }}>
+          {error}
+        </p>
+      )}
+    </main>
   );
 }
