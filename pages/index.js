@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function CoreLogin() {
+export default function HomePage() {
   return (
     <main
       style={{
